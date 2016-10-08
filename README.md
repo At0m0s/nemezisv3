@@ -6,12 +6,12 @@ NemezisV3 uses the keystone and capstone libraries to convert ASM to HEX, and HE
 It can currently only convert ASM->HEX, I'm working on the reverse.
 
 # Supported architectures
-*ARM (little/big endian, thumb)
-*AARCH64 (little/big endian, thumb)
-*x86 (32, 64)
+* ARM (little/big endian, thumb)
+* AARCH64 (little/big endian, thumb)
+* x86 (32, 64)
 
 # Planned
-*Everything else :D
+* Everything else :D
 
 # Usage
 Feel free to do whatever you like with this code, I just made it because I wanted to be able to convert stuff while on linux.
