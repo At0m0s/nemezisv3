@@ -31,7 +31,7 @@ MainWindow::MainWindow(QWidget *parent) :
     k_arch = KS_ARCH_X86;
     k_mode = KS_MODE_32;
     c_arch = CS_ARCH_X86;
-    c_mode = CS_MODE_64;
+    c_mode = CS_MODE_32;
 }
 
 MainWindow::~MainWindow()
@@ -49,9 +49,14 @@ void updateArchAndMode(int index, bool thumb, bool bend) {
         k_arch = KS_ARCH_X86;
         k_mode = KS_MODE_32;
         c_arch = CS_ARCH_X86;
-        c_mode = CS_MODE_64;
+        c_mode = CS_MODE_32;
         break;
     case 1:
+        k_arch = KS_ARCH_X86;
+        k_mode = KS_MODE_64;
+        c_arch = CS_ARCH_X86;
+        c_mode = CS_MODE_64;
+    case 2:
         k_arch = KS_ARCH_ARM;
         if(thumb&&bend)
             k_mode = (ks_mode)(KS_MODE_BIG_ENDIAN | KS_MODE_THUMB);
@@ -62,7 +67,7 @@ void updateArchAndMode(int index, bool thumb, bool bend) {
         else
             k_mode = KS_MODE_LITTLE_ENDIAN;
         break;
-    case 2:
+    case 3:
         k_arch = KS_ARCH_ARM64;
         if(thumb&&bend)
             k_mode = (ks_mode)(KS_MODE_BIG_ENDIAN | KS_MODE_THUMB);
@@ -73,7 +78,7 @@ void updateArchAndMode(int index, bool thumb, bool bend) {
         else
             k_mode = KS_MODE_LITTLE_ENDIAN;
         break;
-    case 3:
+    case 4:
         k_arch = KS_ARCH_MIPS;
         k_mode = KS_MODE_MIPS32R6;
         break;
@@ -129,6 +134,18 @@ void MainWindow::on_bigEndianBox_toggled(bool checked)
     updateArchAndMode(ui->archsCombo->currentIndex(), ui->thumbBox->isChecked(), checked);
 }
 
+/*std::string tokenize(const std::string &s) {
+    if (!s.size()) {
+         return "";
+       }
+       std::stringstream ss;
+       ss << s[0];
+       for (int i = 1; i < s.size(); i++) {
+         ss << '|' << s[i];
+       }
+       return ss.str();
+}*/
+
 void MainWindow::on_convertBackBtn_clicked()
 {
     QList<QByteArray> q = ui->hextTextEdit->toPlainText().toLatin1().split('x');
@@ -151,7 +168,7 @@ void MainWindow::on_convertBackBtn_clicked()
         if(countcs > 0) {
             size_t j;
             printf("opcodes: ");
-            for (j=0; j<countcs+1; j++) {
+            for (j=0; j<countcs; j++) {
                 printf("%s\t\t%s", insn[j].mnemonic, insn[j].op_str);
                 _asm.append(insn[j].mnemonic);
                 _asm.append("\t\t");

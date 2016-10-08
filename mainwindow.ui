@@ -58,6 +58,11 @@
     </property>
     <item>
      <property name="text">
+      <string>x86</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
       <string>x86_64</string>
      </property>
     </item>
