@@ -20,6 +20,12 @@ private slots:
 
     void on_convertBtn_clicked();
 
+    void on_thumbBox_toggled(bool checked);
+
+    void on_bigEndianBox_toggled(bool checked);
+
+    void on_convertBackBtn_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

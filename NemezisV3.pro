@@ -20,3 +20,5 @@ HEADERS  += mainwindow.h
 FORMS    += mainwindow.ui
 
 unix|win32: LIBS += -lkeystone
+
+unix|win32: LIBS += -lcapstone

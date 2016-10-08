@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>NemezisV3</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QTextEdit" name="asmTextEdit">
@@ -71,6 +71,53 @@
       <string>aarch64</string>
      </property>
     </item>
+    <item>
+     <property name="text">
+      <string>mips64</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QCheckBox" name="thumbBox">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>80</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Thumb</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="bigEndianBox">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>100</y>
+      <width>101</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Big Endian</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="convertBackBtn">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>130</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>&lt;- Convert</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
